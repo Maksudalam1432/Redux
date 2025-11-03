@@ -1,6 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 function Navbar() {
+
+  const items=useSelector((state)=>state.cart)
   return (
     <div className='flex   justify-between   p-10 bg-gray-300 items-center  '>
         
@@ -13,7 +16,7 @@ function Navbar() {
 
     <Link to ="/">HOME</Link>
     <Link to ="/Cart">CART</Link>
-    <p>Cart item : <span>0</span></p>
+    <p>Cart item : {items.length}</p>
         </div>
        </div>
   )

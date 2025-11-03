@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
-
+import { useDispatch } from 'react-redux';
+import { add } from '../store/Cardslice';
 function Product() {
+
+   
+  const Dispatch=useDispatch()
   
     const [products,setproducts]=useState([])
   useEffect(() => {
@@ -11,6 +15,12 @@ function Product() {
     };
     fetchProduct();
   }, []);
+
+
+
+  const handleclclick=(product)=>{
+     Dispatch(add(product))
+  }
 
   return (
     <div className="p-5 flex justify-center gap-8  flex-wrap">
@@ -30,7 +40,9 @@ function Product() {
           />
         <h3 className="mt-3 font-semibold">Name: {items.title.slice(0,6)   }</h3>
         <h3 className="font-semibold">Price: ${items.price}</h3>
-        <button className='px-2  py-2 mt-1 rounded-md bg-blue-500  '>Add Cart</button>
+        <button className='px-2  py-2 mt-1 rounded-md bg-blue-500   ' onClick={()=>handleclclick(items
+
+        )}>Add Cart</button>
       </div>
 ))}
     </div>

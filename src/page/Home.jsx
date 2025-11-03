@@ -7,6 +7,7 @@ function Home() {
       <h1 className='font-semibold text-xl mb-6'>
         WELCOME TO THE REDUX TOOLKIT STORE
       </h1>
+        
 
     
       <div className='flex flex-wrap justify-center gap-8'>
